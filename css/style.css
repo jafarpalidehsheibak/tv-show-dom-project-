@@ -71,3 +71,37 @@ body {
   font-size: 25px;
   margin-bottom: 50px;
 }
+.container {
+  /* display: flex;
+  flex-wrap: wrap; */
+  background-color: #151515;
+  height: min-content(100vh);
+  color: white;
+}
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  /* align-items: baseline;
+   */
+}
+.movie-list-item {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  max-width: 333px;
+  margin: 10px;
+  border: 1px solid #4dbf00;
+}
+.movie-list-container {
+  margin-left: 50px;
+  padding: 20px;
+}
+
+.movie-list-item-img {
+  width: 270px;
+  height: 200px;
+  object-fit: cover;
+}
+.movie-list-item-title {
+  align-self: center;
+}
