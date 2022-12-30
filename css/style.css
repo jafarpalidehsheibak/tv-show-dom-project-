@@ -91,17 +91,37 @@ body {
   max-width: 333px;
   margin: 10px;
   border: 1px solid #4dbf00;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  transition: all 0.5s ease-in-out;
 }
+.movie-list-item:hover {
+  transform: scale(1.05);
+}
+
 .movie-list-container {
   margin-left: 50px;
   padding: 20px;
 }
 
 .movie-list-item-img {
+  align-self: center;
   width: 270px;
   height: 200px;
   object-fit: cover;
 }
 .movie-list-item-title {
   align-self: center;
+}
+.movie-list-item-button {
+  padding: 10px;
+  background-color: #4dbf00;
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  /* position: absolute; */
+  /* bottom: 10px; */
 }
