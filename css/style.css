@@ -89,7 +89,9 @@ body {
   flex-direction: column;
   align-items: space-between;
   max-width: 333px;
-  margin: 10px;
+  min-width: 333px;
+  /* max-height: 300px; */
+  margin: 20px;
   border: 1px solid #4dbf00;
   border-radius: 10px;
   position: relative;
@@ -107,12 +109,20 @@ body {
 
 .movie-list-item-img {
   align-self: center;
-  width: 270px;
+  width: 100%;
   height: 200px;
+  border-radius: 10px;
   object-fit: cover;
+  margin-bottom: 5px;
 }
 .movie-list-item-title {
   align-self: center;
+  font-size: 19px;
+  color: tomato;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 15px;
 }
 .movie-list-item-button {
   padding: 10px;
@@ -122,6 +132,47 @@ body {
   outline: none;
   border: none;
   cursor: pointer;
-  /* position: absolute; */
-  /* bottom: 10px; */
+  align-self: flex-start;
+  width: 100%;
+  /* position: absolute;
+  left: 0;
+  bottom: 0; */
+  margin-top: auto;
+}
+.movie-list-item-desc {
+  /* overflow: hidden; */
+  /* max-height: 50px; */
+  /* display: inline-block; */
+}
+.search {
+  /* max-width: 500px; */
+  /* margin: 25px; */
+  display: flex;
+  background-color: dimgray;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  padding: 10px;
+  margin: 5px auto 5px auto;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+.search input {
+  width: 80%;
+  border-radius: 2px;
+  height: 2rem;
+  font-size: 2rem;
+}
+.search button {
+  padding: 10px;
+  background-color: #4dbf00;
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  height: 2rem;
+  font-size: 1rem;
 }

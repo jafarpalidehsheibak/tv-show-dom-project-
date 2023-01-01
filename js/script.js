@@ -14,29 +14,73 @@
 //     console.log(res.data);
 //   })
 //   .catch((error) => console.log(error));
-let result;
-const getData = async () => {
-  const res = await axios.get("episodes.json");
-  result = await res.data;
-  console.log(result);
-  return result;
-};
+
+// let result;
+// const getData = async () => {
+//   const res = await axios.get("episodes.json");
+//   result = await res.data;
+//   console.log(result);
+//   return result;
+// };
 const el = document.querySelector(".movie-list");
-let output = "";
-getData().then((data) => {
-  data.forEach((element) => {
-    output += `
+// let output = "";
+// getData().then((data) => {
+//   data.forEach((element) => {
+//     output += `
+//     <div class="movie-list-item">
+//               <img class="movie-list-item-img" src="img/avatar.jpg" alt="" />
+//               <h3 class="movie-list-item-title">${element.name}</h3>
+//               <p class="movie-list-item-desc">
+//                 ${element.summary}
+//               </p>
+//               <button class="movie-list-item-button">Watch</button>
+//             </div>
+//     `;
+//   });
+//   el.innerHTML = output;
+// });
+
+// getData().then((data) => {
+//   data.forEach((element) => {
+//     showResult(element);
+//   });
+// });
+let final = [];
+const showResult = (chars) => {
+  const res = chars
+    .map((char) => {
+      return `
     <div class="movie-list-item">
               <img class="movie-list-item-img" src="img/avatar.jpg" alt="" />
-              <h3 class="movie-list-item-title">${element.name}</h3>
+              <h3 class="movie-list-item-title">${char.name}</h3>
               <p class="movie-list-item-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Doloremque repellendus illo aspernatur debitis? Veniam expedita
-                repellendus iste ea.
+                ${char.summary}
               </p>
               <button class="movie-list-item-button">Watch</button>
             </div>
     `;
+    })
+    .join("");
+  el.innerHTML = res;
+};
+
+const load = async () => {
+  try {
+    const res = await fetch("episodes.json");
+    final = await res.json();
+    showResult(final);
+    console.log(final);
+  } catch (err) {
+    console.log(err);
+  }
+};
+load();
+const searchEl = document.querySelector("#searchinput");
+searchEl.addEventListener("keyup", (e) => {
+  const searchstr = e.target.value;
+  const filtered = final.filter((char) => {
+    return char.name.includes(searchstr);
   });
-  el.innerHTML = output;
+  console.log(filtered);
+  showResult(filtered);
 });
