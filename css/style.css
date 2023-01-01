@@ -124,6 +124,10 @@ body {
   text-overflow: ellipsis;
   margin-bottom: 15px;
 }
+.movie-list-item-season {
+  color: darksalmon;
+  margin-bottom: 0.5rem;
+}
 .movie-list-item-button {
   padding: 10px;
   background-color: #4dbf00;

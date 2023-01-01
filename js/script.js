@@ -51,8 +51,10 @@ const showResult = (chars) => {
     .map((char) => {
       return `
     <div class="movie-list-item">
+    
               <img class="movie-list-item-img" src="img/avatar.jpg" alt="" />
               <h3 class="movie-list-item-title">${char.name}</h3>
+              <h4 class="movie-list-item-season">Season:  S0${char.season}E0${char.number}</h4>
               <p class="movie-list-item-desc">
                 ${char.summary}
               </p>
@@ -77,10 +79,13 @@ const load = async () => {
 load();
 const searchEl = document.querySelector("#searchinput");
 searchEl.addEventListener("keyup", (e) => {
-  const searchstr = e.target.value;
+  const searchstr = e.target.value.toLowerCase();
   const filtered = final.filter((char) => {
-    return char.name.includes(searchstr);
+    return (
+      char.name.toLowerCase().includes(searchstr) ||
+      char.summary.toLowerCase().includes(searchstr)
+    );
   });
-  console.log(filtered);
+  // console.log(filtered);
   showResult(filtered);
 });
