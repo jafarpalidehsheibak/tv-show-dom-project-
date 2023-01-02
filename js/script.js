@@ -52,7 +52,7 @@ const showResult = (chars) => {
       return `
     <div class="movie-list-item">
     
-              <img class="movie-list-item-img" src="img/avatar.jpg" alt="" />
+              <img class="movie-list-item-img" src="${char.image.medium}" alt="" />
               <h3 class="movie-list-item-title">${char.name}</h3>
               <h4 class="movie-list-item-season">Season:  S0${char.season}E0${char.number}</h4>
               <p class="movie-list-item-desc">
@@ -68,7 +68,7 @@ const showResult = (chars) => {
 
 const load = async () => {
   try {
-    const res = await fetch("episodes.json");
+    const res = await fetch("https://api.tvmaze.com/shows/82/episodes");
     final = await res.json();
     showResult(final);
     showSelect(final);
