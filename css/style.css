@@ -75,7 +75,7 @@ body {
   /* display: flex;
   flex-wrap: wrap; */
   background-color: #151515;
-  height: min-content(100vh);
+  min-height: calc(100vh - 50px);
   color: white;
 }
 .movie-list {
@@ -105,6 +105,7 @@ body {
 .movie-list-container {
   margin-left: 50px;
   padding: 20px;
+  /* height: 100%; */
 }
 
 .movie-list-item-img {
@@ -184,14 +185,15 @@ body {
 .searchbox {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  justify-items: center;
+  align-items: baseline;
+  justify-items: baseline;
+  flex-wrap: wrap;
 }
 #selectsearch {
   height: 2rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   display: block;
-  width: 400px;
+  width: 80%;
 }
 .selectsearchdiv {
   align-self: flex-start;

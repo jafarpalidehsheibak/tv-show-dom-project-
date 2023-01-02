@@ -78,6 +78,20 @@ const load = async () => {
   }
 };
 load();
+
+const btnsearch = document.querySelector("#btnSearch");
+btnsearch.addEventListener("click", (e) => {
+  const searchstr = e.target.value.toLowerCase();
+  const filtered = final.filter((char) => {
+    return (
+      char.name.toLowerCase().includes(searchstr) ||
+      char.summary.toLowerCase().includes(searchstr)
+    );
+  });
+  // console.log(filtered);
+  showResult(filtered);
+});
+
 const searchEl = document.querySelector("#searchinput");
 searchEl.addEventListener("keyup", (e) => {
   const searchstr = e.target.value.toLowerCase();
