@@ -71,6 +71,7 @@ const load = async () => {
     const res = await fetch("episodes.json");
     final = await res.json();
     showResult(final);
+    showSelect(final);
     console.log(final);
   } catch (err) {
     console.log(err);
@@ -79,6 +80,28 @@ const load = async () => {
 load();
 const searchEl = document.querySelector("#searchinput");
 searchEl.addEventListener("keyup", (e) => {
+  const searchstr = e.target.value.toLowerCase();
+  const filtered = final.filter((char) => {
+    return (
+      char.name.toLowerCase().includes(searchstr) ||
+      char.summary.toLowerCase().includes(searchstr)
+    );
+  });
+  // console.log(filtered);
+  showResult(filtered);
+});
+const select = document.querySelector("#selectsearch");
+const showSelect = (chars) => {
+  const res = chars
+    .map((char) => {
+      return `
+            <option value="${char.name}">S0${char.season}E0${char.number}-${char.name}</option>
+    `;
+    })
+    .join("");
+  select.innerHTML = res;
+};
+select.addEventListener("change", (e) => {
   const searchstr = e.target.value.toLowerCase();
   const filtered = final.filter((char) => {
     return (

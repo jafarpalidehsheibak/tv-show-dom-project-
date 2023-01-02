@@ -88,8 +88,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: space-between;
-  max-width: 333px;
-  min-width: 333px;
+  max-width: 300px;
+  min-width: 300px;
   /* max-height: 300px; */
   margin: 20px;
   border: 1px solid #4dbf00;
@@ -156,7 +156,7 @@ body {
   justify-content: center;
   align-items: center;
   justify-content: space-around;
-  width: 50%;
+  width: 40%;
   padding: 10px;
   margin: 5px auto 5px auto;
   border: 1px solid gainsboro;
@@ -179,4 +179,20 @@ body {
   cursor: pointer;
   height: 2rem;
   font-size: 1rem;
+}
+
+.searchbox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  justify-items: center;
+}
+#selectsearch {
+  height: 2rem;
+  font-size: 1rem;
+  display: block;
+  width: 400px;
+}
+.selectsearchdiv {
+  align-self: flex-start;
 }
